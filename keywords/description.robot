@@ -1,6 +1,7 @@
 *** Settings ***
 Library           SeleniumLibrary
 Library           String
+Library           Collections
 Resource          ../variables/selectors.robot
 
 *** Keywords ***
@@ -10,6 +11,10 @@ Pegar Valor Do Elemento
     ${palavras}=    Split String    ${texto}    ${SPACE}
     Capture Page Screenshot
     [Return]    ${palavras}[0]
+
+Pegar Valor Unitário
+    ${valor_unitário}=    Pegar Valor Do Elemento    ${ITEM_VALUE}
+    [Return]    ${valor_unitário}
 
 Adicionar Ao Carrinho
     Click Element    ${ADD_TO_CART_BUTTON}
